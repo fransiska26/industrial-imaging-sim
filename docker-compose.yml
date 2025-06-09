@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    ports:
+      - "8000:8000"
+    networks:
+      - imaging_net
+
+  controller:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.controller
+    depends_on:
+      - api
+    networks:
+      - imaging_net
+    env_file:
+      - .env
+
+networks:
+  imaging_net:
+    driver: bridge
