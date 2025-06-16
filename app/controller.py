@@ -5,7 +5,7 @@ from app.scanner import Scanner
 from app.processor import Processor
 from app.actuator import Actuator
 
-endpoint = os.getenv("ENDPOINT", "http://api:8000")  # fallback value
+endpoint = os.getenv("ENDPOINT", "http://localhost:8000")
 num_retry = int(os.getenv("NUM_RETRY", "5"))
 num_cycle = int(os.getenv("NUM_CYCLE", "2"))
 
